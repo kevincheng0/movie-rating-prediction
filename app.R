@@ -6,20 +6,20 @@ source("helper.R")
 #),
 
 ui <- fluidPage(
-  htmlTemplate("head.html", name = "about"),
-  htmlTemplate("about.html", name = "about"),
+  htmlTemplate("www/head.html", name = "about"),
+  htmlTemplate("www/about.html", name = "about"),
 
-  htmlTemplate("select-movie.html", name = "select-movie"),
+  htmlTemplate("www/select-movie.html", name = "select-movie"),
   div(textInput("movie", label = "MovieLens Movie ID"), style = "width: 200px; margin:0 auto;"), 
   
-  htmlTemplate("select-user.html", name = "select-user"),
+  htmlTemplate("www/select-user.html", name = "select-user"),
   actionButton("action", "Randomize User"),
   br(),
   br(),
   htmlOutput("summary"),
   br(),
   
-  htmlTemplate("movie-prediction.html", name = "prediction"),
+  htmlTemplate("www/movie-prediction.html", name = "prediction"),
   htmlOutput("prediction"),
   
   align = "center"

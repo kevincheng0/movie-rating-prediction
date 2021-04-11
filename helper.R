@@ -1,12 +1,14 @@
 library(tidyverse)
 
-data <- read.csv("User_profiles v2.csv")
+BASE_DIR <- getwd()
 
-ratings <- read.csv("ratings.csv")
+data <- read.csv("./data/User_profiles_v2.csv")
+
+ratings <- read.csv("./data/ratings.csv")
 grouped <- ratings %>% count(userId) %>% arrange(userId)
 avg_ratings <- ratings %>% group_by(userId) %>% summarize(avg = mean(rating))
 
-movies <- read.csv("movies.csv")
+movies <- read.csv("./data/movies.csv")
 movie_avg <- ratings %>% 
   group_by(movieId) %>% 
   summarize(avg_rating = mean(rating)) %>%
@@ -53,7 +55,6 @@ predict_rating <- function(uId, mId) {
   user_ratings <- user_ratings[3:20] %>% select(genres)
   user_score <- rowMeans(user_ratings)
   movie_score <- movie_avg[mId[1], 2]
-  print(user_score * 0.75 + movie_score * 0.25)
   return(round((user_score * 0.75 + movie_score * 0.25), digits = 2))
   
 }
