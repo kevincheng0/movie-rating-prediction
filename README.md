@@ -1,1 +1,2 @@
-Run app3.R, that's it
+Requires tidyverse and shiny packages
+Run ```app.R```
