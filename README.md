@@ -1,2 +1,1 @@
-Requires tidyverse and shiny packages
-Run ```app.R```
+Requires tidyverse and shiny packages. Run ```app.R```
